@@ -1,0 +1,41 @@
+{% include "header.html"%}
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<section class="feature-area section-gap" id="service">
+    <div class="container">
+        <div class="row s-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">User Form</h1>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form method="post" action="{% url 'submitForm'%}">
+                    {% csrf_token %}
+                    {{form}}
+                    <!--<div>
+                        <Label for="form_element">Value1</Label>
+                        <input type="text" name="num1"  value="{{n1}}" class="form-control"/>
+                    </div>
+                    <div>
+                        <Label for="form_element">Value2</Label>
+                        <input type="text" name="num2" value="{{n2}}" class="form-control"/>
+                    </div>-->
+                    <div class="pt-4">
+                        <button type="submit">Save</button>
+                    </div>
+                    Output
+                    <input type="text" value="{{output}}">
+        
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "footer.html"%}

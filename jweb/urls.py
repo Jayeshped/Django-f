@@ -21,10 +21,23 @@ from jweb import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.homePage),
+    path('homePage/',views.homePage),
     path('aboutUs/',views.aboutUs),
     path('course/',views.course),
     path('course/<int:courseid>',views.courseDetails),
     path('contactPage/',views.contactPage),
+    path('headerPage/',views.headerPage),
+    path('footerPage/',views.footerPage),
+    path('aboutMenu/',views.aboutMenu),
+    path('aboutBase/',views.aboutBase),
+    path('userForm/',views.userForm),
+    path('submitForm/',views.submitForm,name="submitForm"),
+    path('aboutThanks/',views.aboutThanks),
+    path('calculator/',views.calculator),
+    path('saveevenodd/',views.saveevenodd) ,
+    path('marksheet/',views.marksheet),
+    path('validatorFun/',views.validatorFun),
+    path('servicesAbout/',views.servicesAbout)
    
 ]
 
