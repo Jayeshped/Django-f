@@ -37,7 +37,8 @@ urlpatterns = [
     path('saveevenodd/',views.saveevenodd) ,
     path('marksheet/',views.marksheet),
     path('validatorFun/',views.validatorFun),
-    path('servicesAbout/',views.servicesAbout)
+    path('servicesAbout/',views.servicesAbout),
+    path('newsDetails/<newsid>',views.newsDetails),
    
 ]
 

@@ -1,0 +1,40 @@
+{% include "header.html"%} 
+<!DOCTYPE html>
+    <head>
+        <title><h1> Nothing</h1></title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <marquee onmouseover="stop()" onmousestart="start()">
+        {% for news in newsData %}
+           <a href="/newsDetails/{{news.id}}"> {{news.news_title}} </a> &nbsp;&nbsp;&nbsp;
+        {% endfor %}
+    </marquee>
+   <section class="feature-area section-gap" id="about",style="padding-top:100px;">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-40 col-lg-8">
+                    <div class="title text-center">
+                        
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="single-info-row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="bg-white p-5">
+                        {{newsDetails.news_title}}
+                        {{newsDetails.news_desc|safe}}
+                        
+                    </div>
+                </div>
+            </div>
+          
+            
+            
+        </div>
+    </section>
+
+{% include "footer.html"%}

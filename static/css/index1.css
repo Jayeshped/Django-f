@@ -1,0 +1,15 @@
+marquee {
+    width: 100%;
+    height: 50px;
+    position:relative;
+    z-index:99;
+    background-color:red ;
+    display:block;
+    margin-top: 22px;
+    margin-bottom:20px;
+    line-height: 50px;
+}
+marquee a {
+    color:brown;
+    font-weight: bold;
+}

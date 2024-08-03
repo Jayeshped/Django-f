@@ -2,6 +2,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 from.forms import usersForm
 from service.models import Service
+from news.models import News
 
 def homePage(request):
     data={
@@ -163,10 +164,30 @@ def validatorFun(request):
         else:
             c="Odd Number";
     return render(request,"validate.html",{'c':c})
+##Services Service calling 
+
+def newsDetails(request,newsid):
+    print(newsid)
+    newsDetails=News.objects.get(id=newsid)
+    data={
+        'newsDetails':newsDetails
+    }
+    return render(request,"newsDetails.html",data)
+
+
 
 def servicesAbout(request):
+    newsData=News.objects.all();
     servicesData=Service.objects.all()
-    for a in servicesData:
-       print(a.service_icon)
-    print(services)
-    return render(request,"index1.html")
+    if request.method=="GET":
+        st=request.GET.get('servicename')
+        if st!=None:
+            servicesData=Service.objects.filter(service_title__icontains=st)
+    #for a in servicesData:
+       #print(a.service_icon)
+    #print(services)
+    data={
+        'servicesData':servicesData,
+        'newsData' :newsData
+    }
+    return render(request,"index1.html",data)

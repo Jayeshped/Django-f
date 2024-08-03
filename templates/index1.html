@@ -2,9 +2,15 @@
 <!DOCTYPE html>
     <head>
         <title><h1> Nothing</h1></title>
+        <link rel="stylesheet" href="/static/css/index1.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
+    <marquee>
+        {% for news in newsData %}
+           <a href="/newsDetails/{{news.id}}"> {{news.news_title}} </a> &nbsp;&nbsp;&nbsp;
+        {% endfor %}
+    </marquee>
     <section class="feature-area section-gap" id="service">
         <div class="container">
             <div class="row s-flex justify-content-center">
@@ -17,45 +23,33 @@
                     </div>
                 </div>
             </div>
+           
             <div class="row">
+                <div class="col-12">
+                    <form method="get">
+                        <input type="text" name="servicename" value=""/>
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+                {% for n in servicesData %}
                 <div class="col-lg-4 col-md-6">
                     <div class="single-feature mb-30">
                         <div class="title d-flex flex-row pb-20">
-                            <span class="Demo"></span>
-                            <h4><a href="#">Js</a></h4>
+                            <span class="{{n.service_icon}}"></span>
+                            <h4><a href="#">{{n.service_title}}</a></h4>
                         </div>
                         <p>
-                            IIP
+                            {{n.service_des|capfirst|safe}}
                         </p>
                     </div>
                 </div>
+                {% empty %}
+                No Data Found
+                {% endfor %}
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-feature mb-30">
-                        <div class="title d-flex flex-row pb-20">
-                            <span class="lnr lnr-user"></span>
-                            <h4><a href="#">Expert Technicians</a></h4>
-                        </div>
-                        <p>
-                            Usage of the Internet is becoming more common due to 
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-feature mb-30">
-                        <div class="title d-flex flex-row pb-20">
-                            <span class="lnr lnr-license"></span>
-                            <h4><a href="#">Professional Services</a></h4>
-                        </div>
-                        <p>
-                            Usage of the Internet is becoming more common due to 
-                        </p>
-                    </div>
-                </div>
-            </div>
+           
+            
+            
         </div>
     </section>
 
