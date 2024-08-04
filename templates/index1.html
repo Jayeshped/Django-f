@@ -47,9 +47,31 @@
                 No Data Found
                 {% endfor %}
             </div>
-           
-            
-            
+            <nav aria-label="...">
+                <ul class="pagination">
+                    {% if ServiceData.has_previous %}
+                  <li class="page-item ">
+                    <a class="page-link" href="serviceAbout/?page=1/" tabindex="-1" >First</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <a class="page-link" href="serviceAbout/?page={{ServiceData.previous_page_number}}" tabindex="-1">Previous</a>
+                  </li>
+                    {% endif %}
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item ">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  {% if ServiceData.has_next %}
+                  <li class="page-item">
+                    <a class="page-link" href="serviceAbout/?page={{lastpage}}">Last</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="serviceAbout/?page={{ServiceData.next_page_number}}">Next</a>
+                  </li>
+                  {% endif %}
+                </ul>
+              </nav>
         </div>
     </section>
 

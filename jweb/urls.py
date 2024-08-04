@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from jweb import views
+from jweb import views,forms
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,8 +40,10 @@ urlpatterns = [
     path('saveevenodd/',views.saveevenodd) ,
     path('marksheet/',views.marksheet),
     path('validatorFun/',views.validatorFun),
-    path('servicesAbout/',views.servicesAbout),
+    path('serviceAbout/',views.serviceAbout),
     path('newsDetails/<newsid>',views.newsDetails),
    
 ]
 
+if settings.DEBUG:
+   urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
